@@ -34,8 +34,8 @@ public class Attempt
     public string Recommendation(int numberToGuess)
     {
         if (GuessedNumber() > numberToGuess)
-            return GuessingNumberGame.LOWER;
+            return GuessingNumberGame.Lower;
         
-        return GuessingNumberGame.HIGHER;
+        return GuessingNumberGame.Higher;
     }
 }

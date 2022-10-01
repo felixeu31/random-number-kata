@@ -28,7 +28,7 @@ namespace RandomNumberKata.Tests
 
             var game = GuessingNumberGame.StartGame(_numberGeneratorMock);
 
-            game.GuessNumber(numberToGuess).Should().Be(GuessingNumberGame.WIN);
+            game.GuessNumber(numberToGuess).Should().Be(GuessingNumberGame.Win);
         }
 
 
@@ -39,7 +39,7 @@ namespace RandomNumberKata.Tests
 
             var game = GuessingNumberGame.StartGame(_numberGeneratorMock);
 
-            game.GuessNumber(2).Should().Be(GuessingNumberGame.LOWER);
+            game.GuessNumber(2).Should().Be(GuessingNumberGame.Lower);
         }
 
 
@@ -50,7 +50,7 @@ namespace RandomNumberKata.Tests
 
             var game = GuessingNumberGame.StartGame(_numberGeneratorMock);
 
-            game.GuessNumber(1).Should().Be(GuessingNumberGame.HIGHER);
+            game.GuessNumber(1).Should().Be(GuessingNumberGame.Higher);
         }
 
 
@@ -63,7 +63,7 @@ namespace RandomNumberKata.Tests
 
             game.GuessNumber(1);
             game.GuessNumber(1);
-            game.GuessNumber(1).Should().Be(GuessingNumberGame.LOSE);
+            game.GuessNumber(1).Should().Be(GuessingNumberGame.Lose);
         }
 
 
@@ -79,7 +79,7 @@ namespace RandomNumberKata.Tests
             game.GuessNumber(1);
             game.GuessNumber(1);
             game.GuessNumber(1);
-            game.GuessNumber(2).Should().Be(GuessingNumberGame.LOSE);
+            game.GuessNumber(2).Should().Be(GuessingNumberGame.Lose);
         }
 
 

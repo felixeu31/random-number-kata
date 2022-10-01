@@ -2,13 +2,13 @@ namespace RandomNumberKata;
 
 public class GuessingNumberGame
 {
-    public const string WIN = "win";
-    public const string LOWER = "lower";
-    public const string HIGHER = "higher";
-    public const string LOSE = "lose";
-    private const int _maximumAttemptNumer = 3;
+    public const string Win = "win";
+    public const string Lower = "lower";
+    public const string Higher = "higher";
+    public const string Lose = "lose";
+    private const int MaximumAttemptNumber = 3;
     private readonly int _numberToGuess;
-    private List<Attempt> _attempts = new List<Attempt>();
+    private readonly List<Attempt> _attempts = new List<Attempt>();
 
     public GuessingNumberGame(int numberToGuess)
     {
@@ -23,16 +23,16 @@ public class GuessingNumberGame
     public string GuessNumber(int guessedNumber)
     {
         if (ExceededMaximumNumberOfAttempts())
-            return LOSE;
+            return Lose;
 
         var attempt = CreateNewAttempt(guessedNumber);
         _attempts.Add(attempt);
 
         if (attempt.IsSuccessful())
-            return WIN;
+            return Win;
 
         if (ExceededMaximumNumberOfAttempts())
-            return LOSE;
+            return Lose;
 
         return attempt.Recommendation(_numberToGuess);
     }
@@ -47,6 +47,6 @@ public class GuessingNumberGame
 
     private bool ExceededMaximumNumberOfAttempts()
     {
-        return _attempts.Count >= _maximumAttemptNumer;
+        return _attempts.Count >= MaximumAttemptNumber;
     }
 }
