@@ -44,7 +44,7 @@ namespace RandomNumberKata.Tests
 
             var game = GuessingNumberGame.Start(_numberGeneratorMock);
 
-            game.GuessNumber(numberToGuess).Should().Be("try-again");
+            game.GuessNumber(2).Should().Be("try-again");
         }
 
     }
