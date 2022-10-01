@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentAssertions;
-
-namespace RandomNumberKata.Tests
+﻿namespace RandomNumberKata.Tests
 {
     public class NumberGeneratorShould
     {

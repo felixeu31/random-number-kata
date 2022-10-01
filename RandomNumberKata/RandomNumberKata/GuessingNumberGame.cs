@@ -1,4 +1,4 @@
-namespace RandomNumberKata.Tests;
+namespace RandomNumberKata;
 
 public class GuessingNumberGame
 {
@@ -14,7 +14,7 @@ public class GuessingNumberGame
         _numberToGuess = numberToGuess;
     }
 
-    public static GuessingNumberGame Start(INumberGenerator numberGenerator)
+    public static GuessingNumberGame StartGame(INumberGenerator numberGenerator)
     {
         return new GuessingNumberGame(numberGenerator.GenerateNumber());
     }

@@ -1,4 +1,4 @@
-namespace RandomNumberKata.Tests;
+namespace RandomNumberKata;
 
 public interface INumberGenerator
 {

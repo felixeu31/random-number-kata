@@ -1,6 +1,3 @@
-using FluentAssertions;
-using NSubstitute;
-
 namespace RandomNumberKata.Tests
 {
     public class GuessingNumberGameShould
@@ -16,7 +13,7 @@ namespace RandomNumberKata.Tests
         [Fact]
         public void Start()
         {
-            var game = GuessingNumberGame.Start(_numberGeneratorMock);
+            var game = GuessingNumberGame.StartGame(_numberGeneratorMock);
 
             game.Should().NotBeNull();
         }
@@ -29,7 +26,7 @@ namespace RandomNumberKata.Tests
 
             _numberGeneratorMock.GenerateNumber().Returns(numberToGuess);
 
-            var game = GuessingNumberGame.Start(_numberGeneratorMock);
+            var game = GuessingNumberGame.StartGame(_numberGeneratorMock);
 
             game.GuessNumber(numberToGuess).Should().Be(GuessingNumberGame.WIN);
         }
@@ -40,7 +37,7 @@ namespace RandomNumberKata.Tests
         {
             _numberGeneratorMock.GenerateNumber().Returns(1);
 
-            var game = GuessingNumberGame.Start(_numberGeneratorMock);
+            var game = GuessingNumberGame.StartGame(_numberGeneratorMock);
 
             game.GuessNumber(2).Should().Be(GuessingNumberGame.LOWER);
         }
@@ -51,7 +48,7 @@ namespace RandomNumberKata.Tests
         {
             _numberGeneratorMock.GenerateNumber().Returns(2);
 
-            var game = GuessingNumberGame.Start(_numberGeneratorMock);
+            var game = GuessingNumberGame.StartGame(_numberGeneratorMock);
 
             game.GuessNumber(1).Should().Be(GuessingNumberGame.HIGHER);
         }
@@ -62,7 +59,7 @@ namespace RandomNumberKata.Tests
         {
             _numberGeneratorMock.GenerateNumber().Returns(2);
 
-            var game = GuessingNumberGame.Start(_numberGeneratorMock);
+            var game = GuessingNumberGame.StartGame(_numberGeneratorMock);
 
             game.GuessNumber(1);
             game.GuessNumber(1);
