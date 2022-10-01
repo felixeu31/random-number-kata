@@ -4,6 +4,7 @@ public class GuessingNumberGame
 {
     public const string WIN = "win";
     public const string LOWER = "lower";
+    public const string HIGHER = "higher";
     private readonly int _numberToGuess;
 
     public GuessingNumberGame(int numberToGuess)
@@ -21,6 +22,9 @@ public class GuessingNumberGame
         if (guessedNumber == _numberToGuess)
             return WIN;
 
-        return LOWER;
+        if (guessedNumber > _numberToGuess)
+            return LOWER;
+
+        return HIGHER;
     }
 }

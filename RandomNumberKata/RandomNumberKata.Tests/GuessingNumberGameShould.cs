@@ -36,15 +36,24 @@ namespace RandomNumberKata.Tests
 
 
         [Fact]
-        public void lower_if_higer_number()
+        public void lower_if_higher_number()
         {
-            var numberToGuess = 1;
-
-            _numberGeneratorMock.GenerateNumber().Returns(numberToGuess);
+            _numberGeneratorMock.GenerateNumber().Returns(1);
 
             var game = GuessingNumberGame.Start(_numberGeneratorMock);
 
             game.GuessNumber(2).Should().Be(GuessingNumberGame.LOWER);
+        }
+
+
+        [Fact]
+        public void higher_if_lower_number()
+        {
+            _numberGeneratorMock.GenerateNumber().Returns(2);
+
+            var game = GuessingNumberGame.Start(_numberGeneratorMock);
+
+            game.GuessNumber(1).Should().Be(GuessingNumberGame.HIGHER);
         }
 
     }
