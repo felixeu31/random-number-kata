@@ -1,4 +1,4 @@
-# random-number-kata
+# Kata: random-number-kata
 Kata repo for practicing this kata: https://www.codurance.com/katalyst/random-number-kata
 
 # Things to practice
