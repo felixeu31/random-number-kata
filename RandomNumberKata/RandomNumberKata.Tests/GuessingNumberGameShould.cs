@@ -1,3 +1,5 @@
+using NSubstitute.ExceptionExtensions;
+
 namespace RandomNumberKata.Tests
 {
     public class GuessingNumberGameShould
@@ -70,7 +72,7 @@ namespace RandomNumberKata.Tests
 
 
         [Fact]
-        public void lose_always_once_lost_game()
+        public void throw_error_after_game_over()
         {
             _numberGeneratorMock.GenerateNumber().Returns(2);
 
@@ -79,7 +81,10 @@ namespace RandomNumberKata.Tests
             game.GuessNumber(1);
             game.GuessNumber(1);
             game.GuessNumber(1);
-            game.GuessNumber(2).Should().Be(GuessingNumberGame.Lose);
+
+            Action act = () => game.GuessNumber(2);
+
+            act.Should().Throw<Exception>();
         }
 
 

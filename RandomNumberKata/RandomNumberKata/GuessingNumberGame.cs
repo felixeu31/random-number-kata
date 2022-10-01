@@ -22,8 +22,7 @@ public class GuessingNumberGame
 
     public string GuessNumber(int guessedNumber)
     {
-        if (ExceededMaximumNumberOfAttempts())
-            return Lose;
+        throwIfGameIsOver();
 
         var attempt = CreateNewAttempt(guessedNumber);
         _attempts.Add(attempt);
@@ -35,6 +34,12 @@ public class GuessingNumberGame
             return Lose;
 
         return attempt.Recommendation(_numberToGuess);
+    }
+
+    private void throwIfGameIsOver()
+    {
+        if (ExceededMaximumNumberOfAttempts())
+            throw new Exception("Game over. No more attempts allowed");
     }
 
     private Attempt CreateNewAttempt(int guessedNumber)
