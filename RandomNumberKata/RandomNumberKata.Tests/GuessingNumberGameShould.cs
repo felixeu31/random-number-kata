@@ -56,6 +56,20 @@ namespace RandomNumberKata.Tests
             game.GuessNumber(1).Should().Be(GuessingNumberGame.HIGHER);
         }
 
+
+        [Fact]
+        public void lose_if_maximum_attempts_reached()
+        {
+            _numberGeneratorMock.GenerateNumber().Returns(2);
+
+            var game = GuessingNumberGame.Start(_numberGeneratorMock);
+
+            game.GuessNumber(1);
+            game.GuessNumber(1);
+            game.GuessNumber(1).Should().Be(GuessingNumberGame.LOSE);
+        }
+
+
     }
 }
 
