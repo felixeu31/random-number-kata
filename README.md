@@ -5,4 +5,11 @@ Kata repo for practicing this kata: https://www.codurance.com/katalyst/random-nu
 - Working with collaborators
 - Baby steps
 - Object Calisthenics
-- Test doubles
+- [Test doubles](https://martinfowler.com/bliki/TestDouble.html)
+
+
+# Technology used
+- C#
+- xUnit
+- FluentAssertions
+- NSubstitute
