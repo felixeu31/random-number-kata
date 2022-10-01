@@ -11,8 +11,8 @@ Kata repo for practicing this kata: https://www.codurance.com/katalyst/random-nu
 # Technology used
 - C#
 - [xUnit](https://xunit.net/)
-- FluentAssertions
-- NSubstitute
+- [FluentAssertions](https://fluentassertions.com/introduction)
+- [NSubstitute](https://nsubstitute.github.io/help/getting-started/)
 
 # Related topics
 - [xUnit cheatsheet for NUnit developer](https://improveandrepeat.com/2018/03/xunit-net-cheat-sheet-for-nunit-users/)
