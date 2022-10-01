@@ -2,6 +2,8 @@ namespace RandomNumberKata.Tests;
 
 public class GuessingNumberGame
 {
+    public const string WIN = "win";
+    public const string LOWER = "lower";
     private readonly int _numberToGuess;
 
     public GuessingNumberGame(int numberToGuess)
@@ -17,8 +19,8 @@ public class GuessingNumberGame
     public string GuessNumber(int guessedNumber)
     {
         if (guessedNumber == _numberToGuess)
-            return "win";
+            return WIN;
 
-        return "try-again";
+        return LOWER;
     }
 }

@@ -31,12 +31,12 @@ namespace RandomNumberKata.Tests
 
             var game = GuessingNumberGame.Start(_numberGeneratorMock);
 
-            game.GuessNumber(numberToGuess).Should().Be("win");
+            game.GuessNumber(numberToGuess).Should().Be(GuessingNumberGame.WIN);
         }
 
 
         [Fact]
-        public void try_again_if_incorrect_number()
+        public void lower_if_higer_number()
         {
             var numberToGuess = 1;
 
@@ -44,7 +44,7 @@ namespace RandomNumberKata.Tests
 
             var game = GuessingNumberGame.Start(_numberGeneratorMock);
 
-            game.GuessNumber(2).Should().Be("try-again");
+            game.GuessNumber(2).Should().Be(GuessingNumberGame.LOWER);
         }
 
     }
