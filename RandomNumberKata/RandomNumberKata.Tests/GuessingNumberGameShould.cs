@@ -1,11 +1,24 @@
+using FluentAssertions;
+using NSubstitute;
+
 namespace RandomNumberKata.Tests
 {
-    public class GameShould
+    public class GuessingNumberGameShould
     {
+        private INumberGenerator _numberGeneratorMock;
+
+        //Setup
+        public GuessingNumberGameShould()
+        {
+            _numberGeneratorMock = Substitute.For<INumberGenerator>();
+        }
+
         [Fact]
         public void Start()
         {
-            var game = Game.Start();
+            var game = GuessingNumberGame.Start(_numberGeneratorMock);
+
+            game.Should().NotBeNull();
         }
     }
 }
