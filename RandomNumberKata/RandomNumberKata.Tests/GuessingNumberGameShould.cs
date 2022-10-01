@@ -20,6 +20,33 @@ namespace RandomNumberKata.Tests
 
             game.Should().NotBeNull();
         }
+
+
+        [Fact]
+        public void win_if_correct_number()
+        {
+            var numberToGuess = 1;
+
+            _numberGeneratorMock.GenerateNumber().Returns(numberToGuess);
+
+            var game = GuessingNumberGame.Start(_numberGeneratorMock);
+
+            game.GuessNumber(numberToGuess).Should().Be("win");
+        }
+
+
+        [Fact]
+        public void try_again_if_incorrect_number()
+        {
+            var numberToGuess = 1;
+
+            _numberGeneratorMock.GenerateNumber().Returns(numberToGuess);
+
+            var game = GuessingNumberGame.Start(_numberGeneratorMock);
+
+            game.GuessNumber(numberToGuess).Should().Be("try-again");
+        }
+
     }
 }
 
