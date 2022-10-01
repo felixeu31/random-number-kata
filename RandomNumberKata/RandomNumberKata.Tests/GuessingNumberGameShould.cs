@@ -67,6 +67,22 @@ namespace RandomNumberKata.Tests
         }
 
 
+
+
+        [Fact]
+        public void lose_always_once_lost_game()
+        {
+            _numberGeneratorMock.GenerateNumber().Returns(2);
+
+            var game = GuessingNumberGame.StartGame(_numberGeneratorMock);
+
+            game.GuessNumber(1);
+            game.GuessNumber(1);
+            game.GuessNumber(1);
+            game.GuessNumber(2).Should().Be(GuessingNumberGame.LOSE);
+        }
+
+
     }
 }
 

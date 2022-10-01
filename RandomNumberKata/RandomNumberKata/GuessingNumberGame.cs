@@ -22,6 +22,9 @@ public class GuessingNumberGame
     public string GuessNumber(int guessedNumber)
     {
         _tries++;
+        
+        if (_tries > 3)
+            return LOSE;
 
         if (guessedNumber == _numberToGuess)
             return WIN;
