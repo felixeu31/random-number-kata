@@ -6,8 +6,9 @@ public class GuessingNumberGame
     public const string LOWER = "lower";
     public const string HIGHER = "higher";
     public const string LOSE = "lose";
+    private const int _maximumAttemptNumer = 3;
     private readonly int _numberToGuess;
-    private int _tries = 0;
+    private List<Attempt> _attempts = new List<Attempt>();
 
     public GuessingNumberGame(int numberToGuess)
     {
@@ -21,20 +22,31 @@ public class GuessingNumberGame
 
     public string GuessNumber(int guessedNumber)
     {
-        _tries++;
-        
-        if (_tries > 3)
+        if (ExceededMaximumNumberOfAttempts())
             return LOSE;
 
-        if (guessedNumber == _numberToGuess)
+        var attempt = CreateNewAttempt(guessedNumber);
+        _attempts.Add(attempt);
+
+        if (attempt.IsSuccessful())
             return WIN;
 
-        if (_tries == 3)
+        if (ExceededMaximumNumberOfAttempts())
             return LOSE;
 
-        if (guessedNumber > _numberToGuess)
-            return LOWER;
+        return attempt.Recommendation(_numberToGuess);
+    }
 
-        return HIGHER;
+    private Attempt CreateNewAttempt(int guessedNumber)
+    {
+        if (guessedNumber == _numberToGuess)
+            return Attempt.SusccessfullAttempt(guessedNumber);
+        
+        return Attempt.BadAttempt(guessedNumber);
+    }
+
+    private bool ExceededMaximumNumberOfAttempts()
+    {
+        return _attempts.Count >= _maximumAttemptNumer;
     }
 }
